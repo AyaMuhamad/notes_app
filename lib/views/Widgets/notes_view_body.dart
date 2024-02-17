@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/Widgets/custom_app_bar.dart';
-
-import 'custom_note_icon.dart';
 import 'notes_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {
@@ -9,21 +7,17 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body:  Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 50,
-            ),
-            CustomAppBar(),
-            Expanded(child: NotesListView()),
-          ],
-        ),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 50,
+          ),
+          CustomAppBar(),
+          Expanded(child: NotesListView()),
+        ],
       ),
     );
   }
 }
-
-
