@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/Widgets/custom_app_bar.dart';
 import 'package:notes_app/views/Widgets/custom_text_field.dart';
