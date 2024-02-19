@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/Widgets/custom_app_bar.dart';
 
 class EditNoteViewBody extends StatelessWidget {
   const EditNoteViewBody({super.key});
@@ -7,7 +8,14 @@ class EditNoteViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24),
+        child: Column(children: [
+          SizedBox(height: 50,),
+          CustomAppBar(icon:Icons.check, title: 'Edit Notes',),
+
+        ]),
+      ),
     );
   }
 }
