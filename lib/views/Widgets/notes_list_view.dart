@@ -1,5 +1,12 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: invalid_use_of_visible_for_testing_member
 
+import 'package:flutter/cupertino.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_state.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/models/note_model.dart';
+
+import '../../cubits/notes_cubit/notes_cubit.dart';
 import 'custom_note_icon.dart';
 
 class NotesListView extends StatelessWidget {
@@ -7,17 +14,25 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16),
-      child: ListView.builder(
-        padding: EdgeInsets.zero,
-        itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 5),
-            child: NoteItem(),
-          );
-        },
-      ),
+    return BlocBuilder<NoteCubit, NotesState>(
+      builder: (context, state) {
+        List<NoteModel> notes = BlocProvider.of<NoteCubit>(context).notes!;
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 16),
+          child: ListView.builder(
+            itemCount:notes.length ,
+            padding: EdgeInsets.zero,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: NoteItem(
+                  note: notes[index],
+                ),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }
